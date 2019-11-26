@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CEC60791-66E3-48EF-B12F-E2446C3F3988}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SoftWareDesign</RootNamespace>
+    <AssemblyName>SoftWareDesign</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\MVC\ASP.NET MVC5博客项目实战\My\1.0\BlogSystem\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\MVC\ASP.NET MVC5博客项目实战\My\1.0\BlogSystem\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\home2018.css" />
+    <Content Include="css\style.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\arithmetic.jpg" />
+    <Content Include="images\bgsign.jpg" />
+    <Content Include="images\btn-detail-arrow.png" />
+    <Content Include="images\captcha %281%29.png" />
+    <Content Include="images\captcha.png" />
+    <Content Include="images\cloudcomputer.jpg" />
+    <Content Include="images\contactIcon.png" />
+    <Content Include="images\cooperateImg.jpg" />
+    <Content Include="images\develop.png" />
+    <Content Include="images\help_chg1.jpg" />
+    <Content Include="images\help_chg2.jpg" />
+    <Content Include="images\help_chg3.jpg" />
+    <Content Include="images\help_chg4.jpg" />
+    <Content Include="images\help_chg5.jpg" />
+    <Content Include="images\help_chk1.jpg" />
+    <Content Include="images\help_chk2.jpg" />
+    <Content Include="images\help_comm1.jpg" />
+    <Content Include="images\help_comm2.jpg" />
+    <Content Include="images\help_comm3.jpg" />
+    <Content Include="images\help_comm4.jpg" />
+    <Content Include="images\help_dwn1.jpg" />
+    <Content Include="images\help_dwn2.jpg" />
+    <Content Include="images\help_log.jpg" />
+    <Content Include="images\help_pwd.jpg" />
+    <Content Include="images\help_pwd2.jpg" />
+    <Content Include="images\help_rpt1.jpg" />
+    <Content Include="images\help_rpt2.jpg" />
+    <Content Include="images\help_rpt3.jpg" />
+    <Content Include="images\help_sig.jpg" />
+    <Content Include="images\home-tip-bg.png" />
+    <Content Include="images\home.png" />
+    <Content Include="images\hy_124x47.png" />
+    <Content Include="images\inp_lock.png" />
+    <Content Include="images\inp_user.png" />
+    <Content Include="images\library.jpg" />
+    <Content Include="images\login-book.png" />
+    <Content Include="images\loginWay.png" />
+    <Content Include="images\logo %281%29.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_org.png" />
+    <Content Include="images\logway.jpg" />
+    <Content Include="images\major.png" />
+    <Content Include="images\majorImg-bot.png" />
+    <Content Include="images\msgarr.png" />
+    <Content Include="images\org.jpg" />
+    <Content Include="images\org_build.jpg" />
+    <Content Include="images\org_clear.jpg" />
+    <Content Include="images\org_coo.jpg" />
+    <Content Include="images\org_fast.jpg" />
+    <Content Include="images\org_or.png" />
+    <Content Include="images\org_process.jpg" />
+    <Content Include="images\org_safe.jpg" />
+    <Content Include="images\org_xi.jpg" />
+    <Content Include="images\p-img.png" />
+    <Content Include="images\pic1.gif" />
+    <Content Include="images\qq.png" />
+    <Content Include="images\QR.png" />
+    <Content Include="images\reportGif_1.gif" />
+    <Content Include="images\reportGif_2.gif" />
+    <Content Include="images\reportGif_3.gif" />
+    <Content Include="images\reportGif_4.gif" />
+    <Content Include="images\reportGif_5.gif" />
+    <Content Include="images\reportGif_6.gif" />
+    <Content Include="images\reportGif_7.gif" />
+    <Content Include="images\reportGif_8.gif" />
+    <Content Include="images\reportshow.jpg" />
+    <Content Include="images\sign_pro.png" />
+    <Content Include="images\sign_shadow.png" />
+    <Content Include="images\trustutn_110_40.jpg" />
+    <Content Include="images\wb.png" />
+    <Content Include="images\wx.png" />
+    <Content Include="index.aspx" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\html5-label.js" />
+    <Content Include="js\jquery-1.9.1.min.js" />
+    <Content Include="js\login.js" />
+    <Content Include="js\org_validate.js" />
+    <Content Include="js\slideMove.js" />
+    <Content Include="js\yii.activeForm.js" />
+    <Content Include="js\yii.captcha.js" />
+    <Content Include="js\yii.js" />
+    <Content Include="js\yii.validation.js" />
+    <Content Include="view\AuthenticityQuery.aspx" />
+    <Content Include="view\PaperReview.aspx" />
+    <Content Include="view\Registered.aspx" />
+    <Content Include="view\SampleReport.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ashx\Login.ashx.cs">
+      <DependentUpon>Login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\AuthenticityQuery.aspx.cs">
+      <DependentUpon>AuthenticityQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\AuthenticityQuery.aspx.designer.cs">
+      <DependentUpon>AuthenticityQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view\PaperReview.aspx.cs">
+      <DependentUpon>PaperReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\PaperReview.aspx.designer.cs">
+      <DependentUpon>PaperReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view\Registered.aspx.cs">
+      <DependentUpon>Registered.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\Registered.aspx.designer.cs">
+      <DependentUpon>Registered.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view\SampleReport.aspx.cs">
+      <DependentUpon>SampleReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\SampleReport.aspx.designer.cs">
+      <DependentUpon>SampleReport.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="js\core.php" />
+    <Content Include="js\stat.php" />
+    <Content Include="ashx\Login.ashx" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SoftWareDesign.Bll\SoftWareDesign.Bll.csproj">
+      <Project>{3eca3f95-e478-4d1f-9523-23592ccdf6b6}</Project>
+      <Name>SoftWareDesign.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoftWareDesign.Model\SoftWareDesign.Model.csproj">
+      <Project>{aba56560-e304-45cf-b4f5-b552ff25c6d5}</Project>
+      <Name>SoftWareDesign.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9926/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
