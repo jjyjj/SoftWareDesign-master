@@ -102,16 +102,19 @@
 
                     </ul>
                     <br />
-                    <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade in active" id="home">
-                            <form role="form">
+
+
+                    <form role="form" id="test-for" enctype="multipart/form-data">
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade in active " id="home">
+
                                 <div class="form-group">
                                     <label for="articleName">文章名称:</label>
                                     <input type="text" class="form-control" id="articleName" placeholder="请输入名称" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="Usersname">作者名字:</label>
-                                    <input type="text" class="form-control" id="Usersname" placeholder="请输入作者名字" />
+                                    <label for="authorName">作者名字:</label>
+                                    <input type="text" class="form-control" id="authorName" placeholder="请输入作者名字" />
                                 </div>
                                 <div class="form-group">
                                     <label for="articleConten">请选择提交方式:</label>
@@ -119,20 +122,20 @@
                                     <input type="radio" name="optionsRadios" id="uploadAtricle" value="单文件上传" style="margin-left: 20px" />单文件上传
                                     <input type="radio" name="optionsRadios" id="uploadAtricles" value="多文件上传" style="margin-left: 20px" />多文件上传
                                    <div id="div-copyAtricle">
-
+                                       <div style="float: right"><span style="color: #8B8682">当前字数为</span><span id="count" style="color: red; font-size: 20px">0</span>字</div>
                                        <textarea class="form-control" rows="15" id="textareaContent"></textarea>
-                                       <span style="color: #8B8682">当前字数为</span><span id="count">   </span>
+
                                    </div>
                                     <div id="div-uploadAtricle" style="display: none">
                                         <div class="row">
                                             <div class="col-lg-8 col-sm-6 col-12">
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" onkeydown="return false;" onpause="return false;" placeholder="请选择一个本地文件，仅支持word,且文件大小不超过9999M" />
+                                                    <input id="filePath" type="text" class="form-control" onkeydown="return false;" onpause="return false;" placeholder="请选择一个本地文件，仅支持word,且文件大小不超过9999M" />
                                                     <label class="input-group-btn">
                                                         <span class="btn btn-primary">
                                                             <i class="glyphicon glyphicon-folder-open"></i>
                                                             选择文件
-                                                            <input type="file" style="display: none;" multiple />
+                                                            <input type="file" id="uploadFile" style="display: none;" />
                                                         </span>
                                                     </label>
                                                 </div>
@@ -145,42 +148,43 @@
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" />自建库
+                                            <input type="checkbox" id="isUseMyHouse" />自建库
                                         </label>
                                         <label>
                                             <a href="#">点击创建</a>
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-group" >
+                                <div class="form-group">
                                     <input id="testing" type="button" name="name" value="进行检测" class="btn btn-default" style="width: 150px" />
                                 </div>
                                 <div class="form-group">
                                     <span style="color: dimgrey">郑重申明：本站系统遵守相关保密规定，全站使用HTTPS加密协议,绝不收录和泄露您送检文档的任何信息，请放心检测！</span>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="tab-pane fade" id="details">
-                            详情
-                        </div>
-                        <div class="tab-pane fade" id="ios">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="firstname" class="col-sm-2 control-label">论文编号：</label>
-                                    <div class="col-sm-8">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="请输入论文编号" />
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button">立即下载</button>
-                                            </span>
+
+                            </div>
+                            <div class="tab-pane fade" id="details">
+                                详情
+                            </div>
+                            <div class="tab-pane fade" id="ios">
+                                <div class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="firstname" class="col-sm-2 control-label">论文编号：</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="请输入论文编号" />
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">立即下载</button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
+
+
                                 </div>
-
-
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                     <script>
                         $(function () {
                             $('#myTab li:eq(1) a').tab('show');
@@ -311,14 +315,14 @@
             jQuery('#w0').yiiActiveForm([{ "id": "signupform-username", "name": "username", "container": ".field-signupform-username", "input": "#signupform-username", "error": ".help-block.help-block-error", "enableAjaxValidation": true, "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "用户名不能为空" }); yii.validation.regularExpression(value, messages, { "pattern": /^\w+$/i, "not": false, "message": "用户名是无效的", "skipOnEmpty": 1 }); yii.validation.string(value, messages, { "message": "用户名必须是一条字符串", "min": 2, "tooShort": "用户名应该包含至少2个字符", "max": 20, "tooLong": "用户名只能包含至多20个字符", "skipOnEmpty": 1 }); } }, { "id": "signupform-password", "name": "password", "container": ".field-signupform-password", "input": "#signupform-password", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "密码不能为空" }); yii.validation.string(value, messages, { "message": "密码必须是一条字符串", "min": 6, "tooShort": "密码应该包含至少6个字符", "max": 20, "tooLong": "密码只能包含至多20个字符", "skipOnEmpty": 1 }); } }, { "id": "signupform-password_repeat", "name": "password_repeat", "container": ".field-signupform-password_repeat", "input": "#signupform-password_repeat", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "密码确认不能为空" }); yii.validation.compare(value, messages, { "operator": "==", "type": "string", "compareAttribute": "signupform-password", "skipOnEmpty": 1, "message": "密码与密码确认不相同" }); } }, { "id": "signupform-email", "name": "email", "container": ".field-signupform-email", "input": "#signupform-email", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "邮箱不能为空" }); yii.validation.email(value, messages, { "pattern": /^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/, "fullPattern": /^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/, "allowName": false, "message": "邮箱不是有效的邮箱地址", "enableIDN": false, "skipOnEmpty": 1 }); } }, { "id": "signupform-captcha", "name": "captcha", "container": ".field-signupform-captcha", "input": "#signupform-captcha", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.captcha(value, messages, { "hash": 693, "hashKey": "yiiCaptcha/site/captcha", "caseSensitive": false, "message": "验证码不正确" }); } }], []);
         });</script>
     <script>
-        //为每一个radio注册一个
+        //点击radio进行切换
         $("[name=optionsRadios]").change(function () {
             var state = $("[name=optionsRadios]:checked").val();
             if (state == "粘贴文本") {
                 $('#div-copyAtricle').show();
                 $('#div-uploadAtricle').hide();
                 $('#textareaContent').val('');
-
+                $('#count').html('0')
             }
             if (state == "单文件上传") {
                 $('#div-copyAtricle').hide();
@@ -328,8 +332,84 @@
 
             }
         })
+        //实时计算文本框内字数
+        $('#textareaContent').keyup(function () {
+            var lenInput = $('#textareaContent').val().length;
+            $('#count').html(lenInput)
+
+        })
+        //选取并判断文件上传类型
+        $('#uploadFile').change(function () {
+            var filePath = $('#uploadFile').val();
+            // 判断文件类型
+            var type = (filePath.substr(filePath.lastIndexOf("."))).toLowerCase();
+            if (type != ".docx" && type != ".txt") {
+                alert("您上传文件的类型不符合(.docx|.txt)！请重新上传");
+                return false;
+            }
+            else {
+                $('#filePath').val(getFileName(filePath));
+
+            }
+        });
+        function getFileName(o) {
+            var pos = o.lastIndexOf("\\");
+            return o.substring(pos + 1);
+        }
+        //进行论文检测
+        $('#testing').click(function () {
+            var submiSsion = $("[name=optionsRadios]:checked").val();//提交方式
+            if (submiSsion == "粘贴文本") {
+                tj($("#textareaContent").val())
+                return;
+            }
+            if (submiSsion == "单文件上传") {
+                var fileInput = document.querySelector("#uploadFile");
+                var file = fileInput.files.item(0);
+                // 使用FileReader读取文件。
+                var fileReader = new FileReader();
+                fileReader.addEventListener("load", function (ev) {
+                 
+                    var result = fileReader.result;
+                    tj(result);
+                });
+                fileReader.readAsDataURL(file);
+                return;
+            }
+            if (submiSsion == "多文件上传") {
+                return;
+            }
 
 
+        })
+        //总感觉这样上传文件的方式不太对
+        //无耻
+        function tj(content) {
+            var articleName = $('#articleName').val();//论文名字
+            var authorName = $('#authorName').val();//作者名字
+            var submiSsion = $("[name=optionsRadios]:checked").val();//提交方式
+            var isUseMyHouse = $("#isUseMyHouse").is(':checked');
+            $.ajax({
+                type: "post",
+                url: "../ashx/PaperReviewManger.ashx",
+                data: {
+                    "articleName": articleName,
+                    "authorName": authorName,
+                    "submiSsion": submiSsion,
+                    "isUseMyHouse": isUseMyHouse,
+                    "content": content
+                },
+                dataType: "json",
+                success: function (data) {
+                    var jsonobj = JSON.parse(JSON.stringify(data));
+
+                },
+                error: function (err) {
+                    alert("账号信息有误，请重新输入");
+
+                }
+            });
+        }
 
 
     </script>

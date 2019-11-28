@@ -412,10 +412,14 @@
     <Content Include="view\Registered.aspx" />
     <Content Include="view\SampleReport.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ashx\Login.ashx.cs">
       <DependentUpon>Login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\PaperReviewManger.ashx.cs">
+      <DependentUpon>PaperReviewManger.ashx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -452,6 +456,13 @@
     </Compile>
     <Compile Include="view\SampleReport.aspx.designer.cs">
       <DependentUpon>SampleReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -594,6 +605,7 @@
     <Content Include="css\bootstrap-3.3.7\package.json" />
     <Content Include="css\bootstrap-3.3.7\README.md" />
     <Content Include="css\bootstrap-3.3.7\_config.yml" />
+    <Content Include="ashx\PaperReviewManger.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
