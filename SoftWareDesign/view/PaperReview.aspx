@@ -4,17 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title></title>
 
 
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+
+    <link href="../css/bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../css/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
 </head>
 <body>
-   <style type="text/css">
+    <style type="text/css">
         /*闪动new小图标*/
         .topnavli {
             position: relative;
@@ -42,7 +45,7 @@
                 <li><a href="../index.aspx" class="topnavli ">首页</a></li>
                 <li><a href="PaperReview.aspx" class="topnavli activenav">论文查重</a></li>
                 <li><a href="AuthenticityQuery.aspx" class="topnavli ">查询真伪</a></li>
-                 <li><a class="topnavli " href="SampleReport.aspx">报告样例</a></li>
+                <li><a class="topnavli " href="SampleReport.aspx">报告样例</a></li>
 
 
             </ul>
@@ -51,14 +54,149 @@
         </div>
         <![endif]-->
     </header>
-    <div class="flashInfo">
-    </div>
+    <style>
+       
+    </style>
     <div class="signmain">
-        <div class="signcenter">
-            
-        </div>
-    </div>
+        <div style="height: 1000px; width: 80%; margin: auto;">
 
+
+            <div id="myCarousel" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="../images/Download/2019071418.jpg" alt="First slide" style="height: 250px; width: 100%" />
+                    </div>
+                    <div class="item">
+                        <img src="../images/Download/2019071419.jpg" class="img" style="height: 250px; width: 100%" />
+                    </div>
+                    <div class="item">
+                        <img src="../images/Download/2019102802.jpg" class="img" style="height: 250px; width: 100%" />
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="carousel-control right" href="#myCarousel"
+                    data-slide="next">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+
+            <div class="row" style="margin: auto">
+                <div class="col-lg-3  ">132</div>
+                <div class="col-lg-8 ">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active"><a href="#home" data-toggle="tab" style="color: black; font-size: large">论文检测</a>
+                        </li>
+                        <li><a href="#details" data-toggle="tab" style="color: black; font-size: large">报告详情</a>
+                        </li>
+                        <li><a href="#ios" data-toggle="tab" style="color: black; font-size: large">报告下载</a></li>
+
+                    </ul>
+                    <br />
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="articleName">文章名称:</label>
+                                    <input type="text" class="form-control" id="articleName" placeholder="请输入名称" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Usersname">作者名字:</label>
+                                    <input type="text" class="form-control" id="Usersname" placeholder="请输入作者名字" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="articleConten">请选择提交方式:</label>
+                                    <input type="radio" name="optionsRadios" id="copyAtricle" value="粘贴文本" checked style="margin-left: 20px" />粘贴文本
+                                    <input type="radio" name="optionsRadios" id="uploadAtricle" value="单文件上传" style="margin-left: 20px" />单文件上传
+                                    <input type="radio" name="optionsRadios" id="uploadAtricles" value="多文件上传" style="margin-left: 20px" />多文件上传
+                                   <div id="div-copyAtricle">
+
+                                       <textarea class="form-control" rows="15" id="textareaContent"></textarea>
+                                       <span style="color: #8B8682">当前字数为</span><span id="count">   </span>
+                                   </div>
+                                    <div id="div-uploadAtricle" style="display: none">
+                                        <div class="row">
+                                            <div class="col-lg-8 col-sm-6 col-12">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" onkeydown="return false;" onpause="return false;" placeholder="请选择一个本地文件，仅支持word,且文件大小不超过9999M" />
+                                                    <label class="input-group-btn">
+                                                        <span class="btn btn-primary">
+                                                            <i class="glyphicon glyphicon-folder-open"></i>
+                                                            选择文件
+                                                            <input type="file" style="display: none;" multiple />
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" />自建库
+                                        </label>
+                                        <label>
+                                            <a href="#">点击创建</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <input id="testing" type="button" name="name" value="进行检测" class="btn btn-default" style="width: 150px" />
+                                </div>
+                                <div class="form-group">
+                                    <span style="color: dimgrey">郑重申明：本站系统遵守相关保密规定，全站使用HTTPS加密协议,绝不收录和泄露您送检文档的任何信息，请放心检测！</span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="details">
+                            详情
+                        </div>
+                        <div class="tab-pane fade" id="ios">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="firstname" class="col-sm-2 control-label">论文编号：</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="请输入论文编号" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button">立即下载</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                    <script>
+                        $(function () {
+                            $('#myTab li:eq(1) a').tab('show');
+                        });
+                    </script>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
 
 
     <div class="modal fade meng" id="mymod-protocol" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -76,6 +214,7 @@
                     <p>
                         1．2　用户注册成功后，本站将给予每个用户一个用户帐号及相应的密码，该用户帐号和密码由用户负责保管；用户应当对以其用户帐号进行的所有活动和事件负法律责任。
                     您在使用本站提供的各项服务之前，应仔细阅读本服务协议。如您不同意本服务协议及/或随时对其的修改，您可以主动取消本站提供的服务；您一旦使用本站服务，即视为您已了解并完全同意本服务协议 各项内容，包括本站对服务协议随时所做的任何修改，并成为本站用户。
+                   
                     </p>
                     <h4>二、注册信息和隐私保护 </h4>
                     <p>2．1　本站帐号的所有权归中工网站，用户完成注册申请手续后，获得本站帐号的使用权。用户应提供及时、详尽及准确的个人资料，并不断更新注册资料，符合及时、详尽准确的要求。所有原始键入的 资料将引用为注册资料。如果因注册信息不真实而引起的问题，并对问题发生所带来的后果，本站不负任何责任。 </p>
@@ -107,6 +246,8 @@
                     <p>4．3　为使用本服务，您必须能够自行经有法律资格对您提供互联网接入服务的第三方，进入国际互联网 </p>
                     ，并应自行支付相关服务费用。此外，您必须自行配备及负责与国际联网连线所需之一切必要装备，包括 计算机、数据机或其它存取装置。 </p>
                
+                   
+
                     <p>4．4　鉴于网络服务的特殊性，用户同意本站有权不经事先通知，随时变更、中断或终止部分或全部的网络服务（包括收费网络服务）。本站不担保网络服务不会中断，对网络服务的及时性、安全性、准确性也 都不作担保。 </p>
                     <p>4．5　本站需要定期或不定期地对提供网络服务的平台或相关的设备进行检修或者维护，如因此类情况而造成网络服务（包括收费网络服务）在合理时间内的中断，本站无需为此承担任何责任。本站保留不经事 先通知为维修保养、升级或其它目的暂停本服务任何部分的权利。 </p>
                     <p>4．6 本服务或第三人可提供与其它国际互联网上之网站或资源之链接。由于本站无法控制这些网站及资源，您了解并同意，此类网站或资源是否可供利用，本站不予负责，存在或源于此类网站或资源之任何内 容、广告、产品或其它资料，本站亦不予保证或负责。因使用或依赖任何此类网站或资源发布的或经由此 类网站或资源获得的任何内容、商品或服务所产生的任何损害或损失，本站不承担任何责任。 </p>
@@ -128,6 +269,7 @@
                     <p>
                         6．4　如本协议中的任何条款无论因何种原因完全或部分无效或不具有执行力，本协议的其余条款仍应有效并且有约束力。
                     中工联系方式
+                   
                     </p>
                     <p>E-mail: 3526700180@aoyucc.com</p>
                 </div>
@@ -165,9 +307,32 @@
     <script src="../js/bootstrap.js"></script>
     <script src="../js/login.js"></script>
     <script type="text/javascript">jQuery(document).ready(function () {
-    jQuery('#signupform-captcha-image').yiiCaptcha({ "refreshUrl": "\/site\/captcha?refresh=1", "hashKey": "yiiCaptcha\/site\/captcha" });
-    jQuery('#w0').yiiActiveForm([{ "id": "signupform-username", "name": "username", "container": ".field-signupform-username", "input": "#signupform-username", "error": ".help-block.help-block-error", "enableAjaxValidation": true, "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "用户名不能为空" }); yii.validation.regularExpression(value, messages, { "pattern": /^\w+$/i, "not": false, "message": "用户名是无效的", "skipOnEmpty": 1 }); yii.validation.string(value, messages, { "message": "用户名必须是一条字符串", "min": 2, "tooShort": "用户名应该包含至少2个字符", "max": 20, "tooLong": "用户名只能包含至多20个字符", "skipOnEmpty": 1 }); } }, { "id": "signupform-password", "name": "password", "container": ".field-signupform-password", "input": "#signupform-password", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "密码不能为空" }); yii.validation.string(value, messages, { "message": "密码必须是一条字符串", "min": 6, "tooShort": "密码应该包含至少6个字符", "max": 20, "tooLong": "密码只能包含至多20个字符", "skipOnEmpty": 1 }); } }, { "id": "signupform-password_repeat", "name": "password_repeat", "container": ".field-signupform-password_repeat", "input": "#signupform-password_repeat", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "密码确认不能为空" }); yii.validation.compare(value, messages, { "operator": "==", "type": "string", "compareAttribute": "signupform-password", "skipOnEmpty": 1, "message": "密码与密码确认不相同" }); } }, { "id": "signupform-email", "name": "email", "container": ".field-signupform-email", "input": "#signupform-email", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "邮箱不能为空" }); yii.validation.email(value, messages, { "pattern": /^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/, "fullPattern": /^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/, "allowName": false, "message": "邮箱不是有效的邮箱地址", "enableIDN": false, "skipOnEmpty": 1 }); } }, { "id": "signupform-captcha", "name": "captcha", "container": ".field-signupform-captcha", "input": "#signupform-captcha", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.captcha(value, messages, { "hash": 693, "hashKey": "yiiCaptcha/site/captcha", "caseSensitive": false, "message": "验证码不正确" }); } }], []);
-});</script>
+            jQuery('#signupform-captcha-image').yiiCaptcha({ "refreshUrl": "\/site\/captcha?refresh=1", "hashKey": "yiiCaptcha\/site\/captcha" });
+            jQuery('#w0').yiiActiveForm([{ "id": "signupform-username", "name": "username", "container": ".field-signupform-username", "input": "#signupform-username", "error": ".help-block.help-block-error", "enableAjaxValidation": true, "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "用户名不能为空" }); yii.validation.regularExpression(value, messages, { "pattern": /^\w+$/i, "not": false, "message": "用户名是无效的", "skipOnEmpty": 1 }); yii.validation.string(value, messages, { "message": "用户名必须是一条字符串", "min": 2, "tooShort": "用户名应该包含至少2个字符", "max": 20, "tooLong": "用户名只能包含至多20个字符", "skipOnEmpty": 1 }); } }, { "id": "signupform-password", "name": "password", "container": ".field-signupform-password", "input": "#signupform-password", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "密码不能为空" }); yii.validation.string(value, messages, { "message": "密码必须是一条字符串", "min": 6, "tooShort": "密码应该包含至少6个字符", "max": 20, "tooLong": "密码只能包含至多20个字符", "skipOnEmpty": 1 }); } }, { "id": "signupform-password_repeat", "name": "password_repeat", "container": ".field-signupform-password_repeat", "input": "#signupform-password_repeat", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "密码确认不能为空" }); yii.validation.compare(value, messages, { "operator": "==", "type": "string", "compareAttribute": "signupform-password", "skipOnEmpty": 1, "message": "密码与密码确认不相同" }); } }, { "id": "signupform-email", "name": "email", "container": ".field-signupform-email", "input": "#signupform-email", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "邮箱不能为空" }); yii.validation.email(value, messages, { "pattern": /^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/, "fullPattern": /^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/, "allowName": false, "message": "邮箱不是有效的邮箱地址", "enableIDN": false, "skipOnEmpty": 1 }); } }, { "id": "signupform-captcha", "name": "captcha", "container": ".field-signupform-captcha", "input": "#signupform-captcha", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.captcha(value, messages, { "hash": 693, "hashKey": "yiiCaptcha/site/captcha", "caseSensitive": false, "message": "验证码不正确" }); } }], []);
+        });</script>
+    <script>
+        //为每一个radio注册一个
+        $("[name=optionsRadios]").change(function () {
+            var state = $("[name=optionsRadios]:checked").val();
+            if (state == "粘贴文本") {
+                $('#div-copyAtricle').show();
+                $('#div-uploadAtricle').hide();
+                $('#textareaContent').val('');
+
+            }
+            if (state == "单文件上传") {
+                $('#div-copyAtricle').hide();
+                $('#div-uploadAtricle').show();
+            }
+            if (state == "多文件上传") {
+
+            }
+        })
+
+
+
+
+    </script>
 </body>
-</body>
+
 </html>

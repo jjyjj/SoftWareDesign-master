@@ -287,9 +287,8 @@ a {
 .signcenter {
     width: 1190px;
     height: 600px;
-    padding: 50px 0 0 0;
-    background: url("../images/bgsign.jpg") no-repeat 0 -70px;
-    margin: 0 auto;
+   
+ 
 }
 
     .signcenter h3 {
@@ -1055,7 +1054,7 @@ body {
 
 .f-none {
     float: none;
-    float: none!important;
+    float: none !important;
 }
 
 /*clear float*/
