@@ -1,7 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.Linq;
+using System.Web;
 using System.Web.Services;
+using System.Web.SessionState;
+
 namespace SoftWareDesign
 {
     /// <summary>
@@ -18,15 +21,6 @@ namespace SoftWareDesign
         {
 
         }
-        [WebMethod]
-        public static List<Model.Students> Login(string name, string pwd)
-        {
-            Bll.StudentsBll studentsBll = new Bll.StudentsBll();
-            var student = studentsBll.GetAllStudents().Where(m => m.StuName == name && m.Pwd == pwd).ToList();
-            //写入缓存
-            //return JsonConvert.SerializeObject(student);
-            return student;
-
-        }
+       
     }
 }

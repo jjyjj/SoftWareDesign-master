@@ -46,7 +46,7 @@
 
 
                     <div class="login-wrapper">
-                        <img src="./images/login-book.png" class="loginbook-img">
+                        <img src="./images/login-book.png" class="loginbook-img" />
                         <div class="login-form-tit">
                             <h4>马上登录</h4>
                             <div class="form-dividing-line">
@@ -67,14 +67,14 @@
                                 </div>
                             </div>
                         </div>
-                        <form id="w0" class="login-form" action="login" method="post">
+                        <form id="w0" class="login-form" method="post">
                             <div class="form-group field-loginform-username required">
                                 <p class="help-block help-block-error"></p>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-user"></span>
                                     </div>
-                                    <input type="text" id="loginform-username" class="form-control" name="LoginForm[username]" tabindex="1" placeholder="用户名">
+                                    <input type="text" id="loginform-username" class="form-control" name="LoginForm[username]" tabindex="1" placeholder="用户名" />
                                 </div>
                             </div>
                             <div class="form-group field-loginform-password required">
@@ -84,7 +84,7 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-lock"></span>
                                     </div>
-                                    <input type="password" id="loginform-password" class="form-control" name="LoginForm[password]" tabindex="2" placeholder="密码">
+                                    <input type="password" id="loginform-password" class="form-control" name="LoginForm[password]" tabindex="2" placeholder="密码" />
                                 </div>
 
                             </div>
@@ -93,7 +93,7 @@
                                 <div class=" col-sm-10">
                                     <div class="checkbox">
                                         <label style="color: #CCCCCC">
-                                            <input type="checkbox">记住我
+                                            <input type="checkbox" id="remeberMe" />记住我
                                         </label>
 
                                         <a href="#" style="color: #CCCCCC; margin-left: 35px">忘记密码</a>
@@ -157,25 +157,36 @@
 
 
     <script type="text/javascript">
+     
         $('#login').click(function () {
-                var name = $('#loginform-username').val();
-                var pwd = $('#loginform-password').val();
-               
-                $.ajax({
-                    type: "post",
-                    url: "index.aspx/Login",
-                    data: "{name:'" + name + "',pwd:'" + pwd + "'}",
-                    contentType: "application/json;charset=utf-8",// 这句可不要忘了。
-                    dataType: "json",
-                    success: function (data) {
-                      alert()
-                    },
-                    error: function (xmlReq, err, c) {
-                        alert("账号信息有误，请重新输入");
-                        
+            var name = $('#loginform-username').val();
+            var pwd = $('#loginform-password').val();
+            var checkState = $('#remeberMe').is(':checked')
+            $.ajax({
+                type: "post",
+                url: "ashx/Login.ashx",
+                data: {
+                    "name": name,
+                    "pwd": pwd,
+                    "checkState": checkState
+                },
+
+                dataType: "json",
+                success: function (data) {
+                    var jsonobj = JSON.parse(JSON.stringify(data));
+                    if (jsonobj[0] == null) {
+                        alert("该用户不存在，请确认账号信息")
+                    } else {
+                        window.location.href = 'view/AuthenticityQuery.aspx';
                     }
-                });
-            })
+                },
+                error: function (err) {
+                    alert("账号信息有误，请重新输入");
+
+                }
+            });
+
+        })
     </script>
 </body>
 </html>
