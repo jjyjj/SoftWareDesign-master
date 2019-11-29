@@ -2,14 +2,14 @@
 
 namespace SoftWareDesign.Bll
 {
-    public class StudentsBll
+    public class PapersBll
     {
-        Dal.StudentDal dal = new Dal.StudentDal();
-        public bool Add(Model.Students model)
+        Dal.PapersDal dal = new Dal.PapersDal();
+        public bool Add(Model.Papers model)
         {
             return dal.Add(model);
         }
-        public List<Model.Students> GetAllList()
+        public List<Model.Papers> GetAllList()
         {
             return dal.GetAllList();
         }

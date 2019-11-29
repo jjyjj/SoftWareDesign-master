@@ -39,7 +39,7 @@ namespace SoftWareDesign.Dal
             }
 
         }
-        public List<Model.Students> GetAllStudents()
+        public List<Model.Students> GetAllList()
         {
 
             string sql = "select * from  Students  ";

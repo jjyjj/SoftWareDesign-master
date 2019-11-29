@@ -19,7 +19,7 @@ namespace SoftWareDesign.ashx
             string pwd = context.Request.Form["pwd"];
             string checkState = context.Request.Form["checkState"];
             Bll.StudentsBll studentsBll = new Bll.StudentsBll();
-            var student = studentsBll.GetAllStudents().Where(m => m.StuName == name && m.Pwd == pwd).ToList();
+            var student = studentsBll.GetAllList().Where(m => m.StuName == name && m.Pwd == pwd).ToList();
 
             if (checkState == "true")
             {
