@@ -91,7 +91,7 @@
             </div>
 
             <div class="row" style="margin: auto">
-                <div class="col-lg-3  ">132</div>
+                <div class="col-lg-3  ">占位，不知道这里放什么</div>
                 <div class="col-lg-8 ">
                     <ul id="myTab" class="nav nav-tabs">
                         <li class="active"><a href="#home" data-toggle="tab" style="color: black; font-size: large">论文检测</a>
@@ -389,6 +389,9 @@
             var authorName = $('#authorName').val();//作者名字
             var submiSsion = $("[name=optionsRadios]:checked").val();//提交方式
             var isUseMyHouse = $("#isUseMyHouse").is(':checked');
+            var filePath = $('#uploadFile').val();
+            // 判断文件类型
+            var type = (filePath.substr(filePath.lastIndexOf("."))).toLowerCase();
             $.ajax({
                 type: "post",
                 url: "../ashx/PaperReviewManger.ashx",
@@ -397,6 +400,7 @@
                     "authorName": authorName,
                     "submiSsion": submiSsion,
                     "isUseMyHouse": isUseMyHouse,
+                    "type": type,
                     "content": content
                 },
                 dataType: "json",

@@ -626,6 +626,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filter\" />
+    <Folder Include="Papers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
