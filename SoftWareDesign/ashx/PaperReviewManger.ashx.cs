@@ -38,6 +38,7 @@ namespace SoftWareDesign.ashx
 
                 if (submiSsion == "粘贴文本")
                 {
+                    MyDuplicateChecking.MyDuplicateChecking myDuplicateChecking = new MyDuplicateChecking.MyDuplicateChecking();
                     
                 }
                 //如果是文件 数据库保存并检测

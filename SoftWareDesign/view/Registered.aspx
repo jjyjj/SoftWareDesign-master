@@ -43,7 +43,7 @@
                 <li><a href="PaperReview.aspx" class="topnavli ">论文查重</a></li>
                 <li><a href="AuthenticityQuery.aspx" class="topnavli ">查询真伪</a></li>
                 <li><a class="topnavli  " href="SampleReport.aspx">报告样例</a></li>
-
+                 <li><a class="topnavli  " href="CheckReport.aspx">查看报告</a></li>
 
 
             </ul>

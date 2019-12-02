@@ -10,6 +10,6 @@
 namespace SoftWareDesign.view {
     
     
-    public partial class AuthenticityQuery {
+    public partial class CheckReport {
     }
 }

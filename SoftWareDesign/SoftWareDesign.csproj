@@ -46,9 +46,21 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\MVC\ASP.NET MVC5博客项目实战\My\1.0\BlogSystem\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="IKAnalyzerNet">
+      <HintPath>..\External libraries\IKAnalyzerNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\External libraries\Lucene.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MyDuplicateChecking">
+      <HintPath>..\External libraries\MyDuplicateChecking.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections">
+      <HintPath>..\External libraries\PowerCollections.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -410,6 +422,7 @@
     <Content Include="view\AuthenticityQuery.aspx" />
     <Content Include="view\PaperReview.aspx" />
     <Content Include="view\Registered.aspx" />
+    <Content Include="view\CheckReport.aspx" />
     <Content Include="view\SampleReport.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
@@ -449,6 +462,13 @@
     </Compile>
     <Compile Include="view\Registered.aspx.designer.cs">
       <DependentUpon>Registered.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view\CheckReport.aspx.cs">
+      <DependentUpon>CheckReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\CheckReport.aspx.designer.cs">
+      <DependentUpon>CheckReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="view\SampleReport.aspx.cs">
       <DependentUpon>SampleReport.aspx</DependentUpon>

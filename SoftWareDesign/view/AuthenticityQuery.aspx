@@ -107,7 +107,7 @@
                 <li><a href="AuthenticityQuery.aspx" class="topnavli activenav">查询真伪</a></li>
 
                 <li><a class="topnavli " href="SampleReport.aspx">报告样例</a></li>
-
+                     <li><a class="topnavli  " href="CheckReport.aspx">查看报告</a></li>
 
 
             </ul>

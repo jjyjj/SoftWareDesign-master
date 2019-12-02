@@ -46,7 +46,7 @@
                 <li><a href="PaperReview.aspx" class="topnavli activenav">论文查重</a></li>
                 <li><a href="AuthenticityQuery.aspx" class="topnavli ">查询真伪</a></li>
                 <li><a class="topnavli " href="SampleReport.aspx">报告样例</a></li>
-
+                <li><a class="topnavli  " href="CheckReport.aspx">查看报告</a></li>
 
             </ul>
         </div>
@@ -163,16 +163,79 @@
                                 </div>
 
                             </div>
+                            <style>
+                                .hr {
+                                    height: 1px;
+                                    border: none;
+                                    border-top: 1px dashed #000000;
+                                }
+                            </style>
                             <div class="tab-pane fade" id="details">
-                                详情
+                                <div style="height: auto;">
+                                    <fieldset id="">
+                                        <legend>基本信息</legend>
+                                        <div class="row jumbotron">
+                                            <div class="col-lg-8 " style="border-right:0.2px solid black">
+                                                <label>
+                                                    论文标题：
+                                                </label>
+                                                <span>叔本华人生的智慧读书笔记</span><br />
+                                                <label>
+                                                    检测时间：
+                                                </label>
+                                                <span>2019-12-02 08:51:21</span><br />
+                                                <label>
+                                                    段落个数：
+                                                </label>
+                                                <span>1</span><br />
+                                                <label>
+                                                    报告编号：
+                                                </label>
+                                                <span>2cd43943-c496-42e6-a1da-28c405ef5071</span><br />
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label>
+                                                    对比论文:
+                                                </label>
+                                                <div>
+                                                    <span>对比论文</span>
+                                                    <span>对比论文</span>
+                                                    <span>对比论文</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <hr class="hr" />
+                                <div style="height: auto;">
+                                    <fieldset id="">
+                                        <legend>报告结果</legend>
+                                        <div class="row">
+                                            <div class="col-lg-12 ">
+                                                <span class="label label-info"  style="font-size: 20px">总文字复制比：80%</span>
+                                                <span class="label  label-danger"  style="font-size: 20px">总文字复制比：80%</span>
+                                                 <span class="label  label-success"  style="font-size: 20px">总文字复制比：80%</span>
+                                                <div class="jumbotron">
+                                                    <ul class="nav nav-justified">
+                                                        <li><label>总字数:</label><span>1,024</span></li>
+                                                         <li><label>重复字数：</label>800</li>
+                                                        <li><label>疑似相似句子总数：</label><span>80</span></li>
+                                                         <li><label>最长单句重复字数：</label>50</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="ios">
-                                <div class="form-horizontal" role="form">
+                                <div class="form-horizontal" role="form" style="margin-top:100px">
                                     <div class="form-group">
-                                        <label for="firstname" class="col-sm-2 control-label">论文编号：</label>
+                                        <label for="firstname" class="col-sm-2 control-label">报告编号：</label>
                                         <div class="col-sm-8">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="请输入论文编号" />
+                                                <input type="text" class="form-control" placeholder="请输入报告编号" />
                                                 <span class="input-group-btn">
                                                     <button class="btn btn-default" type="button">立即下载</button>
                                                 </span>
@@ -188,18 +251,13 @@
                     <script>
                         $(function () {
                             $('#myTab li:eq(1) a').tab('show');
+
                         });
                     </script>
 
                 </div>
             </div>
-
-
-
-
         </div>
-
-
     </div>
 
 
@@ -283,6 +341,7 @@
             </div>
         </div>
     </div>
+
     <footer class="copyright">
         <!--[if lt IE 9]>
         <div class="copyright">
@@ -358,29 +417,29 @@
         }
         //进行论文检测
         $('#testing').click(function () {
-            var submiSsion = $("[name=optionsRadios]:checked").val();//提交方式
-            if (submiSsion == "粘贴文本") {
-                tj($("#textareaContent").val())
-                return;
-            }
-            if (submiSsion == "单文件上传") {
-                var fileInput = document.querySelector("#uploadFile");
-                var file = fileInput.files.item(0);
-                // 使用FileReader读取文件。
-                var fileReader = new FileReader();
-                fileReader.addEventListener("load", function (ev) {
-                 
-                    var result = fileReader.result;
-                    tj(result);
-                });
-                fileReader.readAsDataURL(file);
-                return;
-            }
-            if (submiSsion == "多文件上传") {
-                return;
-            }
+            //var submiSsion = $("[name=optionsRadios]:checked").val();//提交方式
+            //if (submiSsion == "粘贴文本") {
+            //    tj($("#textareaContent").val())
+            //    return;
+            //}
+            //if (submiSsion == "单文件上传") {
+            //    var fileInput = document.querySelector("#uploadFile");
+            //    var file = fileInput.files.item(0);
+            //    // 使用FileReader读取文件。
+            //    var fileReader = new FileReader();
+            //    fileReader.addEventListener("load", function (ev) {
 
+            //        var result = fileReader.result;
+            //        tj(result);
+            //    });
+            //    fileReader.readAsDataURL(file);
+            //    return;
+            //}
+            //if (submiSsion == "多文件上传") {
+            //    return;
+            //}
 
+            $('#myTab li:eq(1) a').tab('show');
         })
         //总感觉这样上传文件的方式不太对
         //无耻
