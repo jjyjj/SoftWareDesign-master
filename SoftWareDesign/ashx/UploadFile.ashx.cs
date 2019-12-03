@@ -1,13 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Web;
+using System.Web.SessionState;
 
 namespace SoftWareDesign.ashx
 {
     /// <summary>
     /// UploadFile 的摘要说明
     /// </summary>
-    public class UploadFile : IHttpHandler
+    public class UploadFile : IHttpHandler, IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
@@ -32,7 +33,9 @@ namespace SoftWareDesign.ashx
             byte[] buff = Convert.FromBase64String(content);
             if (commentMethods.ByteToFile(content, path, fileName))
             {
-                string userAricle = commentMethods.GetAll(path + fileName);
+                string url = path + fileName;
+                context.Session["systemPaperPath"] = url;
+                string userAricle = commentMethods.GetAll(url);
                 context.Response.Write(JsonConvert.SerializeObject(userAricle));
             }
         }

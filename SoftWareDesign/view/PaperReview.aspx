@@ -421,6 +421,10 @@
                     UploadFile($('#filePath').val(), content);
                     $('#div-copyAtricle').show();
                     $('#div-uploadAtricle').hide();
+                    var type = (filePath.substr(filePath.lastIndexOf("."))).toLowerCase();
+                    var str = $('#filePath').val()
+                    str = str.substr(0, str.lastIndexOf(type));
+                    $('#articleName').val(str);
                 });
                 fileReader.readAsDataURL(file);
 
@@ -444,7 +448,7 @@
                 dataType: "json",
                 success: function (data) {
                     var jsonobj = JSON.parse(JSON.stringify(data));
-                    $("#textareaContent").val(jsonobj)
+                    $("#textareaContent").val(jsonobj[0].toString())
 
 
                 },
@@ -453,7 +457,10 @@
 
                 }
             });
-
+            $('#articleName').val("");
+            $('#filePath').val("");
+            $('#authorName').val("");
+            $('#textareaContent').val("");
             //$('#myTab li:eq(1) a').tab('show');
         })
 

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorBll.cs" />
+    <Compile Include="KeyWordsBll.cs" />
     <Compile Include="PapersBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentsBll.cs" />

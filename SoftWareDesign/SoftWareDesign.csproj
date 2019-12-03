@@ -49,6 +49,15 @@
     <Reference Include="IKAnalyzerNet">
       <HintPath>..\External libraries\IKAnalyzerNet.dll</HintPath>
     </Reference>
+    <Reference Include="JiebaNet.Analyser">
+      <HintPath>C:\Users\jjy\Desktop\软件设计大赛\设计大赛\KeyWord\Keyword\bin\Debug\JiebaNet.Analyser.dll</HintPath>
+    </Reference>
+    <Reference Include="JiebaNet.Segmenter">
+      <HintPath>C:\Users\jjy\Desktop\软件设计大赛\设计大赛\KeyWord\Keyword\bin\Debug\JiebaNet.Segmenter.dll</HintPath>
+    </Reference>
+    <Reference Include="Keyword">
+      <HintPath>C:\Users\jjy\Desktop\软件设计大赛\设计大赛\KeyWord\Keyword\bin\Debug\Keyword.dll</HintPath>
+    </Reference>
     <Reference Include="Lucene.Net">
       <HintPath>..\External libraries\Lucene.Net.dll</HintPath>
     </Reference>
@@ -467,6 +476,11 @@
     <Content Include="js\yii.captcha.js" />
     <Content Include="js\yii.js" />
     <Content Include="js\yii.validation.js" />
+    <Content Include="Resources\cn_synonym.txt" />
+    <Content Include="Resources\dict.txt" />
+    <Content Include="Resources\idf.txt" />
+    <Content Include="Resources\stopwords.txt" />
+    <Content Include="Resources\THUOCL_it.txt" />
     <Content Include="view\AuthenticityQuery.aspx" />
     <Content Include="view\PaperReview.aspx" />
     <Content Include="view\Registered.aspx" />
@@ -680,6 +694,12 @@
     <Content Include="ashx\TestingPaper.ashx" />
     <Content Include="ashx\UploadFile.ashx" />
     <None Include="packages.config" />
+    <Content Include="Resources\char_state_tab.json" />
+    <Content Include="Resources\pos_prob_emit.json" />
+    <Content Include="Resources\pos_prob_start.json" />
+    <Content Include="Resources\pos_prob_trans.json" />
+    <Content Include="Resources\prob_emit.json" />
+    <Content Include="Resources\prob_trans.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

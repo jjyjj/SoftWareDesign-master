@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorDal.cs" />
+    <Compile Include="KeyWordsDal.cs" />
     <Compile Include="PapersDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlHelp.cs" />

@@ -1,5 +1,9 @@
-﻿using System;
+﻿using JiebaNet.Analyser;
+using JiebaNet.Segmenter;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace SoftWareDesign
 {
@@ -63,5 +67,19 @@ namespace SoftWareDesign
 
         }
 
+
+        /// <summary>
+        /// 获取高频词
+        /// </summary>
+        /// <param name="userpaper"></param>
+        /// <returns></returns>
+        public List<string> GetKeyWord(string userpaper)
+        {
+            JiebaSegmenter segmenter = new JiebaSegmenter();
+            segmenter.LoadUserDict("THUOCL_it.txt");
+            var fc = new TfidfExtractor();
+            List<string> UserKeywords = fc.ExtractTags(userpaper, count: 6, allowPos: null).ToList<string>();
+            return UserKeywords;
+        }
     }
 }
