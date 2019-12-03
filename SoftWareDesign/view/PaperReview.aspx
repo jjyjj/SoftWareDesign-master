@@ -175,7 +175,7 @@
                                     <fieldset id="">
                                         <legend>基本信息</legend>
                                         <div class="row jumbotron">
-                                            <div class="col-lg-8 " style="border-right:0.2px solid black">
+                                            <div class="col-lg-8 " style="border-right: 0.2px solid black">
                                                 <label>
                                                     论文标题：
                                                 </label>
@@ -213,15 +213,19 @@
                                         <legend>报告结果</legend>
                                         <div class="row">
                                             <div class="col-lg-12 ">
-                                                <span class="label label-info"  style="font-size: 20px">总文字复制比：80%</span>
-                                                <span class="label  label-danger"  style="font-size: 20px">总文字复制比：80%</span>
-                                                 <span class="label  label-success"  style="font-size: 20px">总文字复制比：80%</span>
+                                                <span class="label label-info" style="font-size: 20px">总文字复制比：80%</span>
+                                                <span class="label  label-danger" style="font-size: 20px">总文字复制比：80%</span>
+                                                <span class="label  label-success" style="font-size: 20px">总文字复制比：80%</span>
                                                 <div class="jumbotron">
                                                     <ul class="nav nav-justified">
-                                                        <li><label>总字数:</label><span>1,024</span></li>
-                                                         <li><label>重复字数：</label>800</li>
-                                                        <li><label>疑似相似句子总数：</label><span>80</span></li>
-                                                         <li><label>最长单句重复字数：</label>50</li>
+                                                        <li>
+                                                            <label>总字数:</label><span>1,024</span></li>
+                                                        <li>
+                                                            <label>重复字数：</label>800</li>
+                                                        <li>
+                                                            <label>疑似相似句子总数：</label><span>80</span></li>
+                                                        <li>
+                                                            <label>最长单句重复字数：</label>50</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -230,7 +234,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="ios">
-                                <div class="form-horizontal" role="form" style="margin-top:100px">
+                                <div class="form-horizontal" role="form" style="margin-top: 100px">
                                     <div class="form-group">
                                         <label for="firstname" class="col-sm-2 control-label">报告编号：</label>
                                         <div class="col-sm-8">
@@ -387,9 +391,7 @@
                 $('#div-copyAtricle').hide();
                 $('#div-uploadAtricle').show();
             }
-            if (state == "多文件上传") {
 
-            }
         })
         //实时计算文本框内字数
         $('#textareaContent').keyup(function () {
@@ -397,81 +399,115 @@
             $('#count').html(lenInput)
 
         })
-        //选取并判断文件上传类型
+        //上传文件
         $('#uploadFile').change(function () {
             var filePath = $('#uploadFile').val();
             // 判断文件类型
             var type = (filePath.substr(filePath.lastIndexOf("."))).toLowerCase();
-            if (type != ".docx" && type != ".txt") {
-                alert("您上传文件的类型不符合(.docx|.txt)！请重新上传");
+            if (type != ".docx") {
+                alert("您上传文件的类型不符合(.docx)！请重新上传");
                 return false;
             }
             else {
                 $('#filePath').val(getFileName(filePath));
 
+                var fileInput = document.querySelector("#uploadFile");
+                var file = fileInput.files.item(0);
+                // 使用FileReader读取文件。
+                var fileReader = new FileReader();
+                fileReader.addEventListener("load", function (ev) {
+
+                    var content = fileReader.result;
+                    UploadFile($('#filePath').val(), content);
+                    $('#div-copyAtricle').show();
+                    $('#div-uploadAtricle').hide();
+                });
+                fileReader.readAsDataURL(file);
+
             }
         });
+
+        //进行论文检测
+        $('#testing').click(function () {
+            var articleName = $('#articleName').val();//论文名字
+            var authorName = $('#authorName').val();//作者名字
+            var isUseMyHouse = $("#isUseMyHouse").is(':checked');
+            $.ajax({
+                type: "post",
+                url: "../ashx/TestingPaper.ashx",
+                data: {
+                    "articleName": articleName,
+                    "authorName": authorName,
+                    "isUseMyHouse": isUseMyHouse,
+                    "content": $("#textareaContent").val().toString()
+                },
+                dataType: "json",
+                success: function (data) {
+                    var jsonobj = JSON.parse(JSON.stringify(data));
+                    $("#textareaContent").val(jsonobj)
+
+
+                },
+                error: function (err) {
+                    alert("检测超时，请重新检测");
+
+                }
+            });
+
+            //$('#myTab li:eq(1) a').tab('show');
+        })
+
+
+        ///获取后缀
         function getFileName(o) {
             var pos = o.lastIndexOf("\\");
             return o.substring(pos + 1);
         }
-        //进行论文检测
-        $('#testing').click(function () {
-            //var submiSsion = $("[name=optionsRadios]:checked").val();//提交方式
-            //if (submiSsion == "粘贴文本") {
-            //    tj($("#textareaContent").val())
-            //    return;
-            //}
-            //if (submiSsion == "单文件上传") {
-            //    var fileInput = document.querySelector("#uploadFile");
-            //    var file = fileInput.files.item(0);
-            //    // 使用FileReader读取文件。
-            //    var fileReader = new FileReader();
-            //    fileReader.addEventListener("load", function (ev) {
+        ///使用FileReader读取文件。
+        function ReadFile($fileName) {
+            var fileInput = document.querySelector("'" + $fileName + "'");
+            var file = fileInput.files.item(0);
+            // 使用FileReader读取文件。
+            var fileReader = new FileReader();
+            fileReader.addEventListener("load", function (ev) {
 
-            //        var result = fileReader.result;
-            //        tj(result);
-            //    });
-            //    fileReader.readAsDataURL(file);
-            //    return;
-            //}
-            //if (submiSsion == "多文件上传") {
-            //    return;
-            //}
+                var result = fileReader.result;
+                tj(result);
 
-            $('#myTab li:eq(1) a').tab('show');
-        })
-        //总感觉这样上传文件的方式不太对
-        //无耻
-        function tj(content) {
-            var articleName = $('#articleName').val();//论文名字
-            var authorName = $('#authorName').val();//作者名字
-            var submiSsion = $("[name=optionsRadios]:checked").val();//提交方式
-            var isUseMyHouse = $("#isUseMyHouse").is(':checked');
+
+            });
+            fileReader.readAsDataURL(file);
+        }
+
+
+        //上传文件
+        function UploadFile(articleName, content) {
+
             var filePath = $('#uploadFile').val();
             // 判断文件类型
             var type = (filePath.substr(filePath.lastIndexOf("."))).toLowerCase();
+
+
             $.ajax({
                 type: "post",
-                url: "../ashx/PaperReviewManger.ashx",
+                url: "../ashx/UploadFile.ashx",
                 data: {
                     "articleName": articleName,
-                    "authorName": authorName,
-                    "submiSsion": submiSsion,
-                    "isUseMyHouse": isUseMyHouse,
-                    "type": type,
                     "content": content
                 },
                 dataType: "json",
                 success: function (data) {
                     var jsonobj = JSON.parse(JSON.stringify(data));
-
+                    $("#textareaContent").val(jsonobj)
                 },
                 error: function (err) {
-                    alert("账号信息有误，请重新输入");
+                    alert("上传文件出错，请重新上传");
 
                 }
             });
+
+
+
         }
 
 
