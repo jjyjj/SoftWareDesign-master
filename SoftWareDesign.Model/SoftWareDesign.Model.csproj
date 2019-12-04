@@ -49,6 +49,7 @@
     <Compile Include="KeyWords.cs" />
     <Compile Include="Papers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReturnMessage.cs" />
     <Compile Include="Students.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

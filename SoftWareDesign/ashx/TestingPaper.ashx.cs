@@ -62,100 +62,48 @@ namespace SoftWareDesign.ashx
             papers = papersBll.GetAllList().Where(m => papersId.Contains(m.Id)).ToList();
             //进行比较
             List<double> numbers = new List<double>();
-            List<string> numbers1 = new List<string>();
             MyDuplicateChecking.MyDuplicateChecking myDuplicateChecking = new MyDuplicateChecking.MyDuplicateChecking();
             for (int i = 0; i < papers.Count; i++)
             {
                 var path = papers[i].Url.Trim().ToString();
+                path = context.Server.MapPath(path);
                 var str = commentMethods.GetAll(path);
-                numbers1.Add(myDuplicateChecking.SumCosine(content, str));
-                string asd = myDuplicateChecking.SumCosine(content, str);
-                double s = double.Parse(asd);
+                double s = double.Parse(myDuplicateChecking.SumCosine(content, str));
+
                 numbers.Add(s);
+
+
             }
 
-            //做一个冒泡排序
-            for (int i = 0; i < numbers.Count - 1; i++)
-            {
 
-                for (int j = 0; j < numbers.Count - i - 1; j++)
-                {
-
-                    // 临时变量，用于元素两两交换
-                    double temp = 0;
+            for (int n = 0; n < numbers.Count - 1; n++)
+            {//外层循环控制排序次数,第几轮
+                for (int j = 0; j < numbers.Count - 1 - n; j++)
+                {//内层循环控制每一轮排序多少次
                     if (numbers[j] > numbers[j + 1])
                     {
-
-                        temp = numbers[j];
+                        double max = numbers[j];
                         numbers[j] = numbers[j + 1];
-                        numbers[j + 1] = temp;
+                        numbers[j + 1] = max;
                     }
                 }
-
+            }
+            //小数在前大数在后
+            List<double> checkNum = new List<double>();
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                checkNum.Add(numbers[i]);
             }
 
-            var checkMaxNum = numbers[numbers.Count - 1];
-           
 
 
-
-
-            //提取该片文章中的高频词
-            //根据高频词去查询数据库中对应文章
-            //根据查询出来的结果进行比较
-            //结果合格被平台收录
-            //Bll.AuthorBll authorBll = new Bll.AuthorBll();
-            //Model.Author author = new Model.Author();
-            //author.Id = Guid.NewGuid().ToString();
-            //author.Name = authorName;
-            //author.Email = "";
-            //author.Adress = "";
-            //if (authorBll.Add(author))
-            //{
-            //    try
-            //    {
-            //        Bll.PapersBll papersBll = new Bll.PapersBll();
-            //        var paper = new Model.Papers()
-            //        {
-            //            Id = Guid.NewGuid().ToString(),
-            //            Name = articleName,
-            //            Title = "",
-            //            Url = (string)context.Session["systemPaperPath"],
-            //            AuthorId = author.Id
-            //        };
-            //        if (papersBll.Add(paper))
-            //        {
-            //            var keyWord = new Model.KeyWords()
-            //            {
-            //                Id = Guid.NewGuid().ToString(),
-            //                PaperId = paper.Id,
-            //                KeyWord1 = keyWords[0].Trim().ToString(),
-            //                KeyWord2 = keyWords[1].Trim().ToString(),
-            //                KeyWord3 = keyWords[2].Trim().ToString(),
-            //                KeyWord4 = keyWords[3].Trim().ToString(),
-            //                KeyWord5 = keyWords[4].Trim().ToString(),
-            //                KeyWord6 = keyWords[5].Trim().ToString(),
-            //            };
-            //            new Bll.KeyWordsBll().Add(keyWord);
-            //        }
-            //        else
-            //        {
-
-            //        }
+            var checkMaxNum = checkNum[checkNum.Count - 1];
+            var checkMinNum = checkNum[0];
 
 
 
 
 
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-
-            //        throw ex;
-            //    }
-
-            //}
 
         }
 

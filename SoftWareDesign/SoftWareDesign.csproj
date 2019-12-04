@@ -137,6 +137,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\UploadFile.aspx" />
     <Content Include="css\bootstrap-3.3.7\.gitattributes" />
     <Content Include="css\bootstrap-3.3.7\.gitignore" />
     <Content Include="css\bootstrap-3.3.7\dist\css\bootstrap-theme.css" />
@@ -487,9 +488,18 @@
     <Content Include="view\CheckReport.aspx" />
     <Content Include="view\SampleReport.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UploadFile.aspx.cs">
+      <DependentUpon>UploadFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UploadFile.aspx.designer.cs">
+      <DependentUpon>UploadFile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\Login.ashx.cs">
       <DependentUpon>Login.ashx</DependentUpon>
     </Compile>
@@ -542,13 +552,6 @@
     </Compile>
     <Compile Include="view\SampleReport.aspx.designer.cs">
       <DependentUpon>SampleReport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -693,6 +696,7 @@
     <Content Include="css\bootstrap-3.3.7\_config.yml" />
     <Content Include="ashx\TestingPaper.ashx" />
     <Content Include="ashx\UploadFile.ashx" />
+    <Content Include="admin\Handler1.ashx" />
     <None Include="packages.config" />
     <Content Include="Resources\char_state_tab.json" />
     <Content Include="Resources\pos_prob_emit.json" />

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title></title>
@@ -14,20 +14,7 @@
     <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
-    <style type="text/css">
-        /*闪动new小图标*/
-        .topnavli {
-            position: relative;
-        }
 
-        .new {
-            position: absolute;
-            top: 6px;
-            right: 8px;
-            width: 16px;
-            height: 18px;
-        }
-    </style>
     <header class="top">
         <!--[if lt IE 9]>
         <div class="top">
@@ -43,7 +30,7 @@
                 <li><a href="PaperReview.aspx" class="topnavli ">论文查重</a></li>
                 <li><a href="AuthenticityQuery.aspx" class="topnavli ">查询真伪</a></li>
                 <li><a class="topnavli  " href="SampleReport.aspx">报告样例</a></li>
-                 <li><a class="topnavli  " href="CheckReport.aspx">查看报告</a></li>
+                <li><a class="topnavli  " href="CheckReport.aspx">查看报告</a></li>
 
 
             </ul>
@@ -54,8 +41,8 @@
     </header>
     <div class="flashInfo">
     </div>
-    <div class="signmain">
-        <div class="signcenter">
+    <div class="signmain" style="height: 680px">
+        <div class="signcenter" style="margin: 80px auto">
             <div class="signinputA">
                 <form id="w0" class="sign-form" action="/signup" method="post">
                     <input type="hidden" name="_csrf" value="Mkl3WGouOHRHGjsBX0xwHm16B2stZV0gSzEhCBx6UEFKZEQCE0kAJw==">
@@ -86,10 +73,10 @@
                     </div>
                     <div class="form-group field-signupform-captcha">
                     </div>
-                    <input type="button"  value="同意以下协议并注册" class="btn btn-green resi" name="signup-button" id="btnRegesited"/>
-                    
+                    <input type="button" value="同意以下协议并注册" class="btn btn-green resi" name="signup-button" id="btnRegesited" />
+
                     <div class="text-center"><a class="agreeprofile redcolor" data-toggle="modal" data-target="#mymod-protocol">中工用户协议</a></div>
-                   
+
                 </form>
             </div>
         </div>
@@ -184,48 +171,34 @@
         </div>
         <![endif]-->
     </footer>
-    <script type="text/javascript">
-        function openWin(u, w, h) {
-            var l = (screen.width - w) / 2;
-            var t = (screen.height - h) / 2;
-            var s = 'width=' + w + ', height=' + h + ', top=' + t + ', left=' + l;
-            s += ', toolbar=no, scrollbars=no, menubar=no, location=no, resizable=no';
-            open(u, 'oWin', s);
-        }
-    </script>
+   
     <script src="../js/jquery-1.9.1.min.js"></script>
-    <script src="../js/yii.js"></script>
-    <script src="../js/yii.validation.js"></script>
-    <script src="../js/yii.captcha.js"></script>
-    <script src="../js/yii.activeForm.js"></script>
+  
     <script src="../js/bootstrap.js"></script>
-    <script src="../js/login.js"></script>
-    <script type="text/javascript">jQuery(document).ready(function () {
-    jQuery('#signupform-captcha-image').yiiCaptcha({ "refreshUrl": "\/site\/captcha?refresh=1", "hashKey": "yiiCaptcha\/site\/captcha" });
-    jQuery('#w0').yiiActiveForm([{ "id": "signupform-username", "name": "username", "container": ".field-signupform-username", "input": "#signupform-username", "error": ".help-block.help-block-error", "enableAjaxValidation": true, "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "用户名不能为空" }); yii.validation.regularExpression(value, messages, { "pattern": /^\w+$/i, "not": false, "message": "用户名是无效的", "skipOnEmpty": 1 }); yii.validation.string(value, messages, { "message": "用户名必须是一条字符串", "min": 2, "tooShort": "用户名应该包含至少2个字符", "max": 20, "tooLong": "用户名只能包含至多20个字符", "skipOnEmpty": 1 }); } }, { "id": "signupform-password", "name": "password", "container": ".field-signupform-password", "input": "#signupform-password", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "密码不能为空" }); yii.validation.string(value, messages, { "message": "密码必须是一条字符串", "min": 6, "tooShort": "密码应该包含至少6个字符", "max": 20, "tooLong": "密码只能包含至多20个字符", "skipOnEmpty": 1 }); } }, { "id": "signupform-password_repeat", "name": "password_repeat", "container": ".field-signupform-password_repeat", "input": "#signupform-password_repeat", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "密码确认不能为空" }); yii.validation.compare(value, messages, { "operator": "==", "type": "string", "compareAttribute": "signupform-password", "skipOnEmpty": 1, "message": "密码与密码确认不相同" }); } }, { "id": "signupform-email", "name": "email", "container": ".field-signupform-email", "input": "#signupform-email", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "邮箱不能为空" }); yii.validation.email(value, messages, { "pattern": /^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/, "fullPattern": /^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/, "allowName": false, "message": "邮箱不是有效的邮箱地址", "enableIDN": false, "skipOnEmpty": 1 }); } }, { "id": "signupform-captcha", "name": "captcha", "container": ".field-signupform-captcha", "input": "#signupform-captcha", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.captcha(value, messages, { "hash": 693, "hashKey": "yiiCaptcha/site/captcha", "caseSensitive": false, "message": "验证码不正确" }); } }], []);
-});</script>
+   
+   
     <script>
-          //简单传值
-            $('#btnRegesited').click(function () {
-                var name = $('#signupform-username').val();
-                var pwd = $('#signupform-password').val();
-                var email = $('#signupform-email').val();
-                $.ajax({
-                    type: "post",
-                    url: "Registered.aspx/Add",
-                    data: "{name:'" + name + "',pwd:'" + pwd + "',email:'" + email + "'}",
-                    contentType: "application/json;charset=utf-8",// 这句可不要忘了。
-                    dataType: "json",
-                    success: function (c) {
+        //简单传值
+        $('#btnRegesited').click(function () {
+            var name = $('#signupform-username').val();
+            var pwd = $('#signupform-password').val();
+            var email = $('#signupform-email').val();
+            $.ajax({
+                type: "post",
+                url: "Registered.aspx/Add",
+                data: "{name:'" + name + "',pwd:'" + pwd + "',email:'" + email + "'}",
+                contentType: "application/json;charset=utf-8",// 这句可不要忘了。
+                dataType: "json",
+                success: function (c) {
 
-                      
-                        alert(c.d)
-                    },
-                    error: function (xmlReq, err, c) {
-                         alert(err)
-                    }
-                });
-            })
+
+                    alert(c.d)
+                },
+                error: function (xmlReq, err, c) {
+                    alert(err)
+                }
+            });
+        })
     </script>
 </body>
 

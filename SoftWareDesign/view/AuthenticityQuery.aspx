@@ -4,17 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
- <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
 
     <title></title>
 
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <style>
-        body {
-            min-height: 1100px;
-        }
-
         .faithcenter {
             padding-top: 120px;
             padding-bottom: 120px;
@@ -42,7 +38,7 @@
             }
 
         .modal-result-text {
-            color: #36363c!important;
+            color: #36363c !important;
             margin-top: 20px;
             margin-bottom: 12px;
         }
@@ -91,7 +87,7 @@
     </style>
 </head>
 <body>
-<header class="top">
+    <header class="top">
         <!--[if lt IE 9]>
         <div class="top">
         <![endif]-->
@@ -107,7 +103,7 @@
                 <li><a href="AuthenticityQuery.aspx" class="topnavli activenav">查询真伪</a></li>
 
                 <li><a class="topnavli " href="SampleReport.aspx">报告样例</a></li>
-                     <li><a class="topnavli  " href="CheckReport.aspx">查看报告</a></li>
+                <li><a class="topnavli  " href="CheckReport.aspx">查看报告</a></li>
 
 
             </ul>
@@ -145,103 +141,21 @@
             </div>
         </div>
     </div>
-    <div class="faithwarning">
-        <div class="faithlist">
-            <p class="white20">如何识别假冒的检测论文？</p>
-            <table class="table faithol">
-                <tbody>
-                    <tr>
-                        <td>一：</td>
-                        <td>比对库资源只有网络资源的均为假货，正品检测论文都是经过大数据量的本地库（9000万篇学术期刊和学位论文）详细比对生成，检测结果有详细的期刊和学位论文出处。假的检测论文用只有网络资源的检测论文坑害消费者，导致其论文最终没有通过审核。</td>
-                    </tr>
 
-                    <tr>
-                        <td>二：</td>
-                        <td>请认准中工这个名称，有的山寨检测论文用以Paper开头的其他名称迷惑消费者。</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="white18">真诚希望您能够将此信息转告您的朋友和同学，以防被骗！</p>
-        </div>
-    </div>
 
-    <div class="modal fade meng modal-normal" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog mengcharge">
-            <div class="modal-content">
-                <div class="modal-header check-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    检测论文真伪查询结果
-           
-                </div>
-                <div class="modal-body mymod-body modal-result" id="checkReport">
-                </div>
-            </div>
-        </div>
-    </div>
+
     <footer class="copyright">
-        <!--[if lt IE 9]>
-        <div class="copyright">
-        <![endif]-->
 
 
-        <span style="display: none">
 
-            <script>
-                var _hmt = _hmt || [];
-                (function () {
-                    var hm = document.createElement("script");
-                    hm.src = "https://hm.baidu.com/hm.js?6eac42ccc7cb1da39d1b58de160ef339";
-                    var s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(hm, s);
-                })();
-</script>
-        </span>
-        <!--[if lt IE 9]>
-        </div>
-        <![endif]-->
+        <span style="display: none"></span>
+
     </footer>
-    <script type="text/javascript">
-        function openWin(u, w, h) {
-            var l = (screen.width - w) / 2;
-            var t = (screen.height - h) / 2;
-            var s = 'width=' + w + ', height=' + h + ', top=' + t + ', left=' + l;
-            s += ', toolbar=no, scrollbars=no, menubar=no, location=no, resizable=no';
-            open(u, 'oWin', s);
-        }
-    </script>
-    <script src="../js/jquery-1.9.1.min.js"></script>
-    <script src="../js/yii.js"></script>
-    <script src="../js/yii.validation.js"></script>
-    <script src="../js/yii.captcha.js"></script>
-    <script src="../js/yii.activeForm.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script type="text/javascript">jQuery(document).ready(function () {
-    $('form#checkForm').on('beforeSubmit', function (e) {
-        var url = $(this).attr('action');
-        $.post(url, $(this).serialize(), function (data) {
-            var result = ''; var buttonLink = '<button class="btn btn-green btn-long" data-dismiss="modal">确定</button>';
-            if (data.status == 1) {
-                result = '<h3 class="initgreen">恭喜，您查询的检测论文为正品！</h3><div class="text-center"><ul class="faith-result-info"><li>编号：' + data.ReportID + '</li><li>版本：' + data.CheckType + '</li><li>标题：' + data.Title + '</li><li>作者：' + data.Author + '</li><li>字数：' + data.ContentLength + '</li><li>总体相似度：' + data.Score + '%</li><li>提交时间：' + data.UploadTime + '</li></ul></div>' + buttonLink;
-            } else {
-                result = '<h3 class="red1">您查询的检测论文是假货！</h3><div class="modal-result-text">' + data.ReportID + '</div>' + buttonLink;
-            }
-            $('#checkform-captcha').val('');
-            changeCaptcha();
-            $('#checkReport').html(result);
-            $("#resultModal").modal();
-        }, 'json');
-        return false;
-    }).on('submit', function (e) {
-        e.preventDefault();
-    });
 
-    function changeCaptcha() {
-        $('#checkform-captcha-image').click();
-    }
-    jQuery('#checkform-captcha-image').yiiCaptcha({ "refreshUrl": "\/site\/captcha?refresh=1", "hashKey": "yiiCaptcha\/site\/captcha" });
-    jQuery('#checkForm').yiiActiveForm([{ "id": "checkform-report_id", "name": "report_id", "container": ".field-checkform-report_id", "input": "#checkform-report_id", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { value = yii.validation.trim($form, attribute, []); yii.validation.required(value, messages, { "message": "论文编号不能为空" }); yii.validation.regularExpression(value, messages, { "pattern": /^\w+$/i, "not": false, "message": "论文编号是无效的", "skipOnEmpty": 1 }); } }, { "id": "checkform-captcha", "name": "captcha", "container": ".field-checkform-captcha", "input": "#checkform-captcha", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.captcha(value, messages, { "hash": 661, "hashKey": "yiiCaptcha/site/captcha", "caseSensitive": false, "message": "验证码不正确" }); } }], []);
-});</script>
+    <script src="../js/jquery-1.9.1.min.js"></script>
+
+    <script src="../js/bootstrap.js"></script>
+
 </body>
 
 </html>
