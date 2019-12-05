@@ -40,13 +40,13 @@
         <div class="major-area">
             <div class="majorarea-auto clearfix">
                 <div class="p-rel pull-left">
-                    <img src="./images/major.png">
+                    <img src="./images/Download/major.png">
                 </div>
                 <div class="login-area pull-left">
 
 
                     <div class="login-wrapper">
-                        <img src="./images/login-book.png" class="loginbook-img" />
+                        <img src="./images/Download/login-book.png" class="loginbook-img" />
                         <div class="login-form-tit">
                             <h4>马上登录</h4>
                             <div class="form-dividing-line">

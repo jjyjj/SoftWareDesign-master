@@ -921,13 +921,7 @@ a {
     margin-top: 260px;
 }
 
-.bg-img-about {
-    background: url(../images/tool/developall4.jpg) no-repeat 0 0;
-}
 
-.bg-img-home {
-    background: url(../images/tool/bg_develop.png) no-repeat 0 0;
-}
 
 .lhh-line-bottom {
     margin: 0;
@@ -1239,7 +1233,7 @@ body {
     height: 100%;
     color: #363b3c;
     font-weight: normal;
-    background: url("../images/tool/horse.jpg") no-repeat;
+   
 }
 
 .h_horse_btn {

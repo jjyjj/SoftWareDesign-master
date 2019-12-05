@@ -385,7 +385,6 @@
     <Content Include="css\home2018.css" />
     <Content Include="css\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="images\arithmetic.jpg" />
     <Content Include="images\bgsign.jpg" />
     <Content Include="images\btn-detail-arrow.png" />
     <Content Include="images\captcha %281%29.png" />
@@ -404,6 +403,9 @@
     <Content Include="images\Download\2019102806.jpg" />
     <Content Include="images\Download\2019102807.jpg" />
     <Content Include="images\Download\bg.jpg" />
+    <Content Include="images\Download\login-book.png" />
+    <Content Include="images\Download\major.png" />
+    <Content Include="images\Download\p-img.png" />
     <Content Include="images\help_chg1.jpg" />
     <Content Include="images\help_chg2.jpg" />
     <Content Include="images\help_chg3.jpg" />

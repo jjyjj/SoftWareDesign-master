@@ -17,6 +17,8 @@ namespace SoftWareDesign.ashx
             CommentMethods commentMethods = new CommentMethods();
             string articleName = context.Request.Form["articleName"];//文章名字
             string content = context.Request.Form["content"];//base64字节
+           
+            
             #region 切割base64
             string str = "base64,";
             int index = content.IndexOf(str) + str.Length;

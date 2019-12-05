@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.SessionState;
@@ -63,17 +64,105 @@ namespace SoftWareDesign.ashx
             //进行比较
             List<double> numbers = new List<double>();
             MyDuplicateChecking.MyDuplicateChecking myDuplicateChecking = new MyDuplicateChecking.MyDuplicateChecking();
+            int paragraph = 0;
+            List<Reslut> resluts = new List<Reslut>();
             for (int i = 0; i < papers.Count; i++)
             {
                 var path = papers[i].Url.Trim().ToString();
                 path = context.Server.MapPath(path);
                 var str = commentMethods.GetAll(path);
-                double s = double.Parse(myDuplicateChecking.SumCosine(content, str));
+                var userSplit = content.Split('\n');
+                var systemSplit = str.Split('\r');
 
-                numbers.Add(s);
 
+                #region 获取段落/为了给下边数组赋值
+
+                for (int q = 0; q < userSplit.Length; q++)
+                {
+
+                    var userSplitLength = userSplit[q].Replace(" ", "").Replace("\t", "").Replace("\n", "").Replace("\r", "").Length;
+                    if (userSplitLength >= 20)
+                    {
+                        paragraph++;
+
+                    }
+                }
+                #endregion
+
+
+                string[] numUserStr = new string[paragraph];//具有相似度的用户字符串
+                string[] numSystemStr = new string[paragraph];//相似度最高的系统字符串
+                double[] numStr = new double[paragraph];//相似度
+
+
+                #region 
+
+                for (int q = 0; q < paragraph; q++)
+                {
+
+                    var userSplitLength = userSplit[q].Replace(" ", "").Replace("\t", "").Replace("\n", "").Replace("\r", "").Length;
+                    if (userSplitLength >= 20)
+                    {
+                        for (int w = 0; w < systemSplit.Length; w++)
+                        {
+
+                            var systemSplitLength = systemSplit[w].Replace(" ", "").Replace("\t", "").Replace("\n", "").Replace("\r", "").Length;
+                            if (systemSplitLength >= 20)
+                            {
+
+                                var userSplitLengthW = userSplit[q].Replace(" ", "").Replace("\t", "").Replace("\n", "").Replace("\r", "");
+                                var systemSplitLengthQ = systemSplit[w].Replace(" ", "").Replace("\t", "").Replace("\n", "").Replace("\r", "");
+                                double num = double.Parse(myDuplicateChecking.SumCosine(userSplitLengthW, systemSplitLengthQ));
+                                if (num > 0.75)
+                                {
+                                    if (num > numStr[q - 1])
+                                    {
+
+                                        numUserStr[q - 1] = userSplit[q].Replace(" ", "").Replace("\t", "").Replace("\n", "").Replace("\r", ""); numSystemStr[q - 1] = systemSplit[w].Replace(" ", "").Replace("\t", "").Replace("\n", "").Replace("\r", "");
+                                        numStr[q - 1] = num;
+
+
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+                #endregion
+
+                #region 将空数组剔除
+                List<string> numUserStr1 = new List<string>();
+                List<string> numSystemStr1 = new List<string>();
+                List<double> numStr1 = new List<double>();
+                for (int r = 0; r < numUserStr.Length; r++)
+                {
+                    if (numSystemStr[r] != null)
+                    {
+                        numUserStr1.Add(numSystemStr[r]);
+                        numSystemStr1.Add(numSystemStr[r]);
+                        numStr1.Add(numStr[r]);
+                    }
+                }
+                #endregion
+
+
+                resluts.Add(new Reslut()
+                {
+                    useStr = numUserStr1,
+                    systemStr = numSystemStr1,
+                    num = numStr1,
+
+                });
+
+
+                #region 全文直接对比
+                numbers.Add(double.Parse(myDuplicateChecking.SumCosine(content, str)));
+                #endregion
 
             }
+
+
 
 
             for (int n = 0; n < numbers.Count - 1; n++)
@@ -82,28 +171,53 @@ namespace SoftWareDesign.ashx
                 {//内层循环控制每一轮排序多少次
                     if (numbers[j] > numbers[j + 1])
                     {
+                        var paper = papers[j];
+                        papers[j] = papers[j + 1];
+                        papers[j + 1] = paper;
+
+
                         double max = numbers[j];
                         numbers[j] = numbers[j + 1];
                         numbers[j + 1] = max;
                     }
                 }
             }
+
             //小数在前大数在后
-            List<double> checkNum = new List<double>();
+            List<Model.Papers> checkPapers = new List<Model.Papers>()
+; List<double> checkNum = new List<double>();
             for (int i = 0; i < numbers.Count; i++)
             {
                 checkNum.Add(numbers[i]);
+                checkPapers.Add(papers[i]);
             }
 
 
+            context.Response.Write(JsonConvert.SerializeObject(resluts));
 
-            var checkMaxNum = checkNum[checkNum.Count - 1];
-            var checkMinNum = checkNum[0];
+            context.Response.Write(JsonConvert.SerializeObject(new Reslut2()
+            {
+                checkNum = checkNum,
+                checkPapers = checkPapers
+            }));
 
 
+        }
+        public class Reslut2
+        {
+
+            public List<double> checkNum { get; set; }
+            public List<Model.Papers> checkPapers { get; set; }
+        }
+
+        public class Reslut
+        {
 
 
+            public List<string> useStr { get; set; }
+            public List<string> systemStr { get; set; }
 
+            public List<double> num { get; set; }
 
         }
 
