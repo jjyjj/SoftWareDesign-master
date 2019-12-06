@@ -177,7 +177,8 @@
                     if (jsonobj[0] == null) {
                         alert("该用户不存在，请确认账号信息")
                     } else {
-                        window.location.href = 'view/AuthenticityQuery.aspx';
+                         alert("登陆成功")
+                        window.location.href = 'view/PaperReview.aspx';
                     }
                 },
                 error: function (err) {
